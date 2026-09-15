@@ -1,0 +1,32 @@
+/* Modernist design tokens, ported from the Claude Design export's
+   modernist design-system stylesheet, with the warm background + card tint
+   the user locked in during design (bg #fff2ef / surface #ffe0d9) baked in
+   as the live --color-bg / --color-surface instead of the system default. */
+:root {
+  --color-bg: #fff2ef;
+  --color-surface: #ffe0d9;
+  --color-text: #201e1d;
+  --color-text-muted: rgba(32, 30, 29, 0.7);
+  --color-text-soft: rgba(32, 30, 29, 0.55);
+
+  --color-accent: #ec3013;
+  --color-accent-hover: #dd2b0f;
+  --color-accent-deep: #ae1800;
+
+  --color-divider: rgba(32, 30, 29, 0.4);
+  --color-divider-soft: rgba(32, 30, 29, 0.25);
+  --color-divider-faint: rgba(32, 30, 29, 0.15);
+
+  --color-dark: #2d2b2b;
+  --color-dark-text: #f3f2f2;
+  --color-dark-muted: #bab6b6;
+  --color-dark-link: #d7d3d3;
+  --color-dark-link-hover: #ff9783;
+  --color-dark-divider: rgba(243, 242, 242, 0.15);
+  --color-dark-divider-strong: rgba(243, 242, 242, 0.15);
+
+  --font-heading: 'Archivo', system-ui, sans-serif;
+  --font-body: 'Archivo', system-ui, sans-serif;
+
+  --content-width: 1160px;
+}
