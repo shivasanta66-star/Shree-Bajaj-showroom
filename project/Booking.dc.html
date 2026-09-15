@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<title>Booking & EMI — Shree Bajaj Motors, Umerkote</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_ds/modernist-47c0e127-8b63-4da2-868c-15dd5d51f608/styles.css">
+<script src="_ds/modernist-47c0e127-8b63-4da2-868c-15dd5d51f608/_ds_bundle.js"></script>
+<style>
+  html,body{margin:0;padding:0;background:#fff2ef}
+  body{font-family:'Archivo',system-ui,sans-serif}
+  a{color:#ae1800;text-decoration:none}
+  a:hover{color:#ec3013}
+  input[type=range]{accent-color:#ec3013}
+</style>
+</helmet>
+<div style="min-height:100vh;background:#fff2ef;color:#201e1d">
+  <div style="background:#fff2ef;border-bottom:2px solid rgba(32,30,29,0.4)">
+    <div style="max-width:1160px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:76px">
+      <a href="./Home.dc.html" style="display:flex;align-items:baseline;gap:10px;color:#201e1d">
+        <span style="font-family:'Archivo',sans-serif;font-weight:800;font-size:23px;letter-spacing:-0.01em">SHREE BAJAJ MOTORS</span>
+        <span style="font-size:12px;color:#ae1800;font-weight:600;letter-spacing:2px;text-transform:uppercase">Umerkote</span>
+      </a>
+      <nav style="display:flex;gap:28px;align-items:center">
+        <a href="./Home.dc.html" style="color:#201e1d;font-weight:600;font-size:14px" style-hover="color:#ec3013">Home</a>
+        <a href="./Models.dc.html" style="color:#201e1d;font-weight:600;font-size:14px" style-hover="color:#ec3013">Models</a>
+        <a href="./Offers.dc.html" style="color:#201e1d;font-weight:600;font-size:14px" style-hover="color:#ec3013">Offers</a>
+        <a href="./Contact.dc.html" style="color:#201e1d;font-weight:600;font-size:14px" style-hover="color:#ec3013">Contact</a>
+        <a href="./Booking.dc.html" style="background:#ec3013;color:#f3f2f2;font-weight:800;font-size:14px;padding:10px 20px;border-radius:0" style-hover="background:#dd2b0f;color:#f3f2f2">Book a Test Ride</a>
+      </nav>
+    </div>
+  </div>
+
+  <div style="background:#ffe0d9;border-bottom:2px solid rgba(32,30,29,0.4)">
+    <div style="max-width:1160px;margin:0 auto;padding:48px 24px">
+      <h1 style="font-family:'Archivo',sans-serif;font-size:42px;font-weight:800;letter-spacing:-0.01em;margin:0 0 8px;color:#201e1d">Book a Test Ride</h1>
+      <p style="font-size:15.5px;color:color-mix(in srgb,#201e1d 70%,transparent);margin:0">Fill the form and we'll call you back to confirm — or estimate your monthly EMI below.</p>
+    </div>
+  </div>
+
+  <div style="max-width:1160px;margin:0 auto;padding:48px 24px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:start">
+
+    <div style="background:#ffe0d9;padding:32px 34px">
+      <h2 style="font-family:'Archivo',sans-serif;font-size:26px;font-weight:800;margin:0 0 20px;color:#201e1d">Test Ride / Booking Request</h2>
+      <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+        <div style="background:#f8f4f4;padding:22px 24px">
+          <div style="font-weight:800;font-size:18px;color:#ec3013;margin-bottom:6px;font-family:'Archivo',sans-serif">✓ Request received!</div>
+          <div style="font-size:15px;color:#201e1d;line-height:1.55">Thank you, {{ submittedName }}. Our team will call you shortly on the number provided to confirm your {{ submittedModel }} test ride.</div>
+          <button onClick="{{ resetForm }}" style="margin-top:16px;background:none;border:1px solid rgba(32,30,29,0.4);color:#201e1d;font-weight:700;font-size:14px;padding:9px 18px;border-radius:0;cursor:pointer;font-family:'Archivo',sans-serif">Submit another request</button>
+        </div>
+      </sc-if>
+      <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div>
+            <label style="font-size:12px;font-weight:600;color:color-mix(in srgb,#201e1d 70%,transparent);display:block;margin-bottom:6px">Full Name</label>
+            <input value="{{ name }}" onChange="{{ setName }}" placeholder="Your name" style="width:100%;box-sizing:border-box;border:1px solid rgba(32,30,29,0.4);border-radius:0;padding:12px 14px;font-size:15px;font-family:'Archivo',sans-serif;background:#fff" />
+          </div>
+          <div>
+            <label style="font-size:12px;font-weight:600;color:color-mix(in srgb,#201e1d 70%,transparent);display:block;margin-bottom:6px">Mobile Number</label>
+            <input value="{{ phone }}" onChange="{{ setPhone }}" placeholder="10-digit mobile number" style="width:100%;box-sizing:border-box;border:1px solid rgba(32,30,29,0.4);border-radius:0;padding:12px 14px;font-size:15px;font-family:'Archivo',sans-serif;background:#fff" />
+          </div>
+          <div>
+            <label style="font-size:12px;font-weight:600;color:color-mix(in srgb,#201e1d 70%,transparent);display:block;margin-bottom:6px">Interested Model</label>
+            <select value="{{ model }}" onChange="{{ setModel }}" style="width:100%;box-sizing:border-box;border:1px solid rgba(32,30,29,0.4);border-radius:0;padding:12px 14px;font-size:15px;font-family:'Archivo',sans-serif;background:#fff">
+              <option>Pulsar Series</option>
+              <option>Platina 100 / 110</option>
+              <option>CT 110</option>
+              <option>Avenger</option>
+              <option>Freedom 125 CNG</option>
+              <option>Chetak EV</option>
+            </select>
+          </div>
+          <sc-if value="{{ formError }}" hint-placeholder-val="{{ false }}">
+            <div style="background:#fff2ef;color:#ae1800;border-radius:0;padding:10px 14px;font-size:14px">{{ formError }}</div>
+          </sc-if>
+          <button onClick="{{ submit }}" style="background:#ec3013;color:#f3f2f2;font-weight:800;font-size:16px;padding:13px;border:none;border-radius:0;cursor:pointer;font-family:'Archivo',sans-serif" style-hover="background:#dd2b0f">Submit Request</button>
+          <div style="font-size:12.5px;color:color-mix(in srgb,#201e1d 55%,transparent)">This is a request only — we'll confirm by phone at 99376 01505.</div>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="background:#ffe0d9;padding:32px 34px">
+      <h2 style="font-family:'Archivo',sans-serif;font-size:26px;font-weight:800;margin:0 0 20px;color:#201e1d">EMI Calculator</h2>
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px">
+            <label style="font-size:12px;font-weight:600;color:color-mix(in srgb,#201e1d 70%,transparent)">Vehicle Price (on-road)</label>
+            <span style="font-weight:800;color:#201e1d">{{ priceFmt }}</span>
+          </div>
+          <input type="range" min="60000" max="200000" step="1000" value="{{ price }}" onChange="{{ setPrice }}" style="width:100%" />
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px">
+            <label style="font-size:12px;font-weight:600;color:color-mix(in srgb,#201e1d 70%,transparent)">Down Payment</label>
+            <span style="font-weight:800;color:#201e1d">{{ downFmt }}</span>
+          </div>
+          <input type="range" min="0" max="100000" step="1000" value="{{ down }}" onChange="{{ setDown }}" style="width:100%" />
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px">
+            <label style="font-size:12px;font-weight:600;color:color-mix(in srgb,#201e1d 70%,transparent)">Tenure</label>
+            <span style="font-weight:800;color:#201e1d">{{ tenure }} months</span>
+          </div>
+          <input type="range" min="6" max="48" step="6" value="{{ tenure }}" onChange="{{ setTenure }}" style="width:100%" />
+        </div>
+        <div style="background:#fff2ef;padding:20px 24px;display:grid;grid-template-columns:1fr 1fr;gap:14px">
+          <div>
+            <div style="font-size:11px;color:#ae1800;text-transform:uppercase;letter-spacing:1px;font-weight:600">Monthly EMI</div>
+            <div style="font-family:'Archivo',sans-serif;font-size:32px;font-weight:800;color:#ae1800">{{ emiFmt }}</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;justify-content:center">
+            <div style="display:flex;justify-content:space-between;font-size:13px"><span style="color:color-mix(in srgb,#201e1d 65%,transparent)">Loan amount</span><span style="font-weight:700;color:#201e1d">{{ loanFmt }}</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:13px"><span style="color:color-mix(in srgb,#201e1d 65%,transparent)">Total interest</span><span style="font-weight:700;color:#201e1d">{{ interestFmt }}</span></div>
+          </div>
+        </div>
+        <div style="font-size:12.5px;color:color-mix(in srgb,#201e1d 55%,transparent)">Estimate at {{ rate }}% p.a. reducing balance. Actual EMI depends on the financier's terms.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:#2d2b2b;color:#f3f2f2">
+    <div style="max-width:1160px;margin:0 auto;padding:56px 24px 40px;display:grid;grid-template-columns:1.1fr 1fr 1fr 1.3fr;gap:40px">
+      <div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#bab6b6;margin-bottom:16px">Motorcycles</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="./Pulsar.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Pulsar 125</a>
+          <a href="./Pulsar.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Pulsar N125</a>
+          <a href="./Pulsar.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Pulsar NS200</a>
+          <a href="./Platina.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Platina 110</a>
+          <a href="./CT110.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">CT 110X</a>
+          <a href="./Avenger.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Avenger Street 160</a>
+          <a href="./Avenger.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Avenger Cruise 220</a>
+          <a href="./Freedom125.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Freedom 125 CNG</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#bab6b6;margin-bottom:16px">Electric Scooters</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="./Chetak.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Chetak 3501</a>
+          <a href="./Chetak.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Chetak 3502</a>
+          <a href="./Chetak.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Chetak 3503</a>
+        </div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#bab6b6;margin:28px 0 16px">Services</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="./Booking.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Easy Finance &amp; EMI</a>
+          <a href="./Offers.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Exchange Bonus</a>
+          <a href="./Contact.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Authorized Service</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#bab6b6;margin-bottom:16px">Quick Links</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="./Home.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Home</a>
+          <a href="./Models.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">All Models</a>
+          <a href="./Offers.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Current Offers</a>
+          <a href="./Booking.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Book a Test Ride</a>
+          <a href="./Booking.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">EMI Calculator</a>
+          <a href="./Contact.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Contact &amp; Directions</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#bab6b6;margin-bottom:16px">Showroom</div>
+        <div style="font-family:'Archivo',sans-serif;font-size:21px;font-weight:800;margin-bottom:8px">Shree Bajaj Motors</div>
+        <div style="font-size:14.5px;color:#d7d3d3;line-height:1.6">Main Road, Umerkote<br>Dist. Nabarangpur, Odisha — 764073</div>
+        <div style="margin-top:18px;display:flex;flex-direction:column;gap:6px;font-size:14.5px">
+          <div style="display:flex;justify-content:space-between;max-width:260px"><span style="color:#bab6b6">Mon – Sat</span><span style="color:#f3f2f2;font-weight:700">9:00 AM – 8:00 PM</span></div>
+          <div style="display:flex;justify-content:space-between;max-width:260px"><span style="color:#bab6b6">Sunday</span><span style="color:#f3f2f2;font-weight:700">10:00 AM – 2:00 PM</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:2px solid rgba(243,242,242,0.15)">
+      <div style="max-width:1160px;margin:0 auto;padding:26px 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px">
+        <div>
+          <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#bab6b6;margin-bottom:6px">Contact</div>
+          <a href="tel:9937601505" style="color:#f3f2f2;font-weight:800;font-size:18px" style-hover="color:#ff9783">99376 01505</a>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#bab6b6;margin-bottom:6px">Email</div>
+          <a href="mailto:shreebajajumerkote@gmail.com" style="color:#f3f2f2;font-weight:600;font-size:15px" style-hover="color:#ff9783">shreebajajumerkote@gmail.com</a>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#bab6b6;margin-bottom:6px">Need Help Choosing?</div>
+          <div style="font-size:15px;color:#d7d3d3">Call or WhatsApp us — sales, service and finance enquiries</div>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(243,242,242,0.15)">
+      <div style="max-width:1160px;margin:0 auto;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+        <div style="font-size:13px;color:#bab6b6">© Shree Bajaj Motors, Umerkote. All Rights Reserved.</div>
+        <div style="font-size:13px;color:#bab6b6">Authorized Bajaj Dealership · Sales · Service · Spares</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;interestRate&quot;: {&quot;editor&quot;: &quot;float&quot;, &quot;default&quot;: 10.5, &quot;min&quot;: 6, &quot;max&quot;: 18, &quot;step&quot;: 0.5, &quot;unit&quot;: &quot;%&quot;, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;EMI Calculator&quot;}}">
+class Component extends DCLogic {
+  state = { name: '', phone: '', model: 'Pulsar Series', submitted: false, submittedName: '', submittedModel: '', formError: '',
+            price: 95000, down: 15000, tenure: 24 };
+  renderVals() {
+    const rate = this.props.interestRate ?? 10.5;
+    const { price, down, tenure } = this.state;
+    const loan = Math.max(price - down, 0);
+    const r = rate / 12 / 100;
+    const emi = loan > 0 ? Math.round(loan * r * Math.pow(1 + r, tenure) / (Math.pow(1 + r, tenure) - 1)) : 0;
+    const inr = (n) => '₹' + n.toLocaleString('en-IN');
+    return {
+      ...this.state,
+      notSubmitted: !this.state.submitted,
+      rate,
+      priceFmt: inr(price), downFmt: inr(down), emiFmt: inr(emi) + '/mo',
+      loanFmt: inr(loan), interestFmt: inr(Math.max(emi * tenure - loan, 0)),
+      setName: (e) => this.setState({ name: e.target.value }),
+      setPhone: (e) => this.setState({ phone: e.target.value }),
+      setModel: (e) => this.setState({ model: e.target.value }),
+      setPrice: (e) => this.setState({ price: +e.target.value, down: Math.min(this.state.down, +e.target.value) }),
+      setDown: (e) => this.setState({ down: Math.min(+e.target.value, this.state.price) }),
+      setTenure: (e) => this.setState({ tenure: +e.target.value }),
+      submit: () => {
+        const { name, phone, model } = this.state;
+        if (!name.trim() || !/^\d{10}$/.test(phone.trim()))
+          return this.setState({ formError: 'Please enter your name and a valid 10-digit mobile number.' });
+        this.setState({ submitted: true, submittedName: name.trim(), submittedModel: model, formError: '' });
+      },
+      resetForm: () => this.setState({ submitted: false, name: '', phone: '', formError: '' }),
+    };
+  }
+}
+
+</script>
+</body>
+</html>

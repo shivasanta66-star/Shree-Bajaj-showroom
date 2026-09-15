@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<title>Models — Shree Bajaj Motors, Umerkote</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_ds/modernist-47c0e127-8b63-4da2-868c-15dd5d51f608/styles.css">
+<script src="_ds/modernist-47c0e127-8b63-4da2-868c-15dd5d51f608/_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+  html,body{margin:0;padding:0;background:#fff2ef}
+  body{font-family:'Archivo',system-ui,sans-serif}
+  a{color:#ae1800;text-decoration:none}
+  a:hover{color:#ec3013}
+</style>
+</helmet>
+<div style="min-height:100vh;background:#fff2ef;color:#201e1d">
+  <div style="background:#fff2ef;border-bottom:2px solid rgba(32,30,29,0.4)">
+    <div style="max-width:1160px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:76px">
+      <a href="./Home.dc.html" style="display:flex;align-items:baseline;gap:10px;color:#201e1d">
+        <span style="font-family:'Archivo',sans-serif;font-weight:800;font-size:23px;letter-spacing:-0.01em">SHREE BAJAJ MOTORS</span>
+        <span style="font-size:12px;color:#ae1800;font-weight:600;letter-spacing:2px;text-transform:uppercase">Umerkote</span>
+      </a>
+      <nav style="display:flex;gap:28px;align-items:center">
+        <a href="./Home.dc.html" style="color:#201e1d;font-weight:600;font-size:14px" style-hover="color:#ec3013">Home</a>
+        <a href="./Models.dc.html" style="color:#201e1d;font-weight:800;font-size:14px;border-bottom:2px solid #ec3013;padding-bottom:3px">Models</a>
+        <a href="./Offers.dc.html" style="color:#201e1d;font-weight:600;font-size:14px" style-hover="color:#ec3013">Offers</a>
+        <a href="./Contact.dc.html" style="color:#201e1d;font-weight:600;font-size:14px" style-hover="color:#ec3013">Contact</a>
+        <a href="./Booking.dc.html" style="background:#ec3013;color:#f3f2f2;font-weight:800;font-size:14px;padding:10px 20px;border-radius:0" style-hover="background:#dd2b0f;color:#f3f2f2">Book a Test Ride</a>
+      </nav>
+    </div>
+  </div>
+
+  <div style="background:#ffe0d9;border-bottom:2px solid rgba(32,30,29,0.4)">
+    <div style="max-width:1160px;margin:0 auto;padding:48px 24px">
+      <h1 style="font-family:'Archivo',sans-serif;font-size:42px;font-weight:800;letter-spacing:-0.01em;margin:0 0 8px;color:#201e1d">Our Models</h1>
+      <p style="font-size:15.5px;color:color-mix(in srgb,#201e1d 70%,transparent);margin:0">Ex-showroom prices indicative — call <a href="tel:9937601505" style="color:#ae1800;font-weight:700">99376 01505</a> for on-road quotes.</p>
+    </div>
+  </div>
+
+  <div style="max-width:1160px;margin:0 auto;padding:48px 24px;display:grid;gap:28px">
+    <sc-for list="{{ models }}" as="m" hint-placeholder-count="6">
+      <div style="background:#ffe0d9;display:grid;grid-template-columns:340px minmax(0,1fr);overflow:hidden">
+        <div style="min-height:230px;filter:grayscale(1) contrast(1.08)"><image-slot id="{{ m.slot }}" shape="rect" placeholder="{{ m.placeholder }}"></image-slot></div>
+        <div style="padding:30px 34px;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap">
+            <div>
+              <div style="font-family:'Archivo',sans-serif;font-size:28px;font-weight:800;color:#201e1d">{{ m.name }}</div>
+              <div style="font-size:13.5px;color:color-mix(in srgb,#201e1d 65%,transparent);margin-top:2px">{{ m.tag }}</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-size:11px;color:#ae1800;text-transform:uppercase;letter-spacing:1px;font-weight:600">Ex-showroom from</div>
+              <div style="font-weight:800;font-size:22px;color:#201e1d;font-family:'Archivo',sans-serif">{{ m.price }}</div>
+            </div>
+          </div>
+          <p style="font-size:15px;line-height:1.6;color:color-mix(in srgb,#201e1d 75%,transparent);margin:0;text-wrap:pretty">{{ m.desc }}</p>
+          <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:2px;padding-top:10px;border-top:1px solid rgba(32,30,29,0.15)">
+            <sc-for list="{{ m.specs }}" as="sp" hint-placeholder-count="3">
+              <div>
+                <div style="font-size:11px;color:#ae1800;text-transform:uppercase;letter-spacing:1px;font-weight:600">{{ sp.k }}</div>
+                <div style="font-weight:700;font-size:15px;color:#201e1d">{{ sp.v }}</div>
+              </div>
+            </sc-for>
+          </div>
+          <div style="margin-top:auto;display:flex;gap:12px;padding-top:6px">
+            <a href="./Booking.dc.html" style="background:#ec3013;color:#f3f2f2;font-weight:800;font-size:14px;padding:11px 22px;border-radius:0" style-hover="background:#dd2b0f;color:#f3f2f2">Book Test Ride</a>
+            <a href="./Booking.dc.html" style="border:1px solid rgba(32,30,29,0.4);color:#201e1d;font-weight:800;font-size:14px;padding:11px 22px;border-radius:0" style-hover="border-color:#201e1d">Check EMI</a>
+            <sc-if value="{{ m.detailHref }}" hint-placeholder-val="{{ false }}">
+              <a href="{{ m.detailHref }}" style="color:#ae1800;font-weight:700;font-size:14px;padding:11px 8px;display:inline-block" style-hover="color:#ec3013">Full Details →</a>
+            </sc-if>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+
+  <div style="background:#2d2b2b;color:#f3f2f2">
+    <div style="max-width:1160px;margin:0 auto;padding:56px 24px 40px;display:grid;grid-template-columns:1.1fr 1fr 1fr 1.3fr;gap:40px">
+      <div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#bab6b6;margin-bottom:16px">Motorcycles</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="./Pulsar.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Pulsar 125</a>
+          <a href="./Pulsar.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Pulsar N125</a>
+          <a href="./Pulsar.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Pulsar NS200</a>
+          <a href="./Platina.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Platina 110</a>
+          <a href="./CT110.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">CT 110X</a>
+          <a href="./Avenger.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Avenger Street 160</a>
+          <a href="./Avenger.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Avenger Cruise 220</a>
+          <a href="./Freedom125.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Freedom 125 CNG</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#bab6b6;margin-bottom:16px">Electric Scooters</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="./Chetak.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Chetak 3501</a>
+          <a href="./Chetak.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Chetak 3502</a>
+          <a href="./Chetak.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Chetak 3503</a>
+        </div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#bab6b6;margin:28px 0 16px">Services</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="./Booking.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Easy Finance &amp; EMI</a>
+          <a href="./Offers.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Exchange Bonus</a>
+          <a href="./Contact.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Authorized Service</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#bab6b6;margin-bottom:16px">Quick Links</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="./Home.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Home</a>
+          <a href="./Models.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">All Models</a>
+          <a href="./Offers.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Current Offers</a>
+          <a href="./Booking.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Book a Test Ride</a>
+          <a href="./Booking.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">EMI Calculator</a>
+          <a href="./Contact.dc.html" style="color:#d7d3d3;font-size:14.5px" style-hover="color:#ff9783">Contact &amp; Directions</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#bab6b6;margin-bottom:16px">Showroom</div>
+        <div style="font-family:'Archivo',sans-serif;font-size:21px;font-weight:800;margin-bottom:8px">Shree Bajaj Motors</div>
+        <div style="font-size:14.5px;color:#d7d3d3;line-height:1.6">Main Road, Umerkote<br>Dist. Nabarangpur, Odisha — 764073</div>
+        <div style="margin-top:18px;display:flex;flex-direction:column;gap:6px;font-size:14.5px">
+          <div style="display:flex;justify-content:space-between;max-width:260px"><span style="color:#bab6b6">Mon – Sat</span><span style="color:#f3f2f2;font-weight:700">9:00 AM – 8:00 PM</span></div>
+          <div style="display:flex;justify-content:space-between;max-width:260px"><span style="color:#bab6b6">Sunday</span><span style="color:#f3f2f2;font-weight:700">10:00 AM – 2:00 PM</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:2px solid rgba(243,242,242,0.15)">
+      <div style="max-width:1160px;margin:0 auto;padding:26px 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px">
+        <div>
+          <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#bab6b6;margin-bottom:6px">Contact</div>
+          <a href="tel:9937601505" style="color:#f3f2f2;font-weight:800;font-size:18px" style-hover="color:#ff9783">99376 01505</a>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#bab6b6;margin-bottom:6px">Email</div>
+          <a href="mailto:shreebajajumerkote@gmail.com" style="color:#f3f2f2;font-weight:600;font-size:15px" style-hover="color:#ff9783">shreebajajumerkote@gmail.com</a>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#bab6b6;margin-bottom:6px">Need Help Choosing?</div>
+          <div style="font-size:15px;color:#d7d3d3">Call or WhatsApp us — sales, service and finance enquiries</div>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(243,242,242,0.15)">
+      <div style="max-width:1160px;margin:0 auto;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+        <div style="font-size:13px;color:#bab6b6">© Shree Bajaj Motors, Umerkote. All Rights Reserved.</div>
+        <div style="font-size:13px;color:#bab6b6">Authorized Bajaj Dealership · Sales · Service · Spares</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      models: [
+        { name: 'Pulsar Series', tag: 'Sport · 125cc to 250cc', price: '₹85,000*', slot: 'model-pulsar', placeholder: 'Pulsar photo', detailHref: './Pulsar.dc.html',
+          desc: "India's favourite sports bike family — Pulsar 125, N150, NS200 and more. Aggressive styling, punchy engines and everyday practicality.",
+          specs: [{k:'Engine',v:'125–250 cc'},{k:'Mileage',v:'up to 55 km/l'},{k:'Variants',v:'6+'}] },
+        { name: 'Platina 100 / 110', tag: 'Commuter · comfort king', price: '₹70,000*', slot: 'model-platina', placeholder: 'Platina photo', detailHref: './Platina.dc.html',
+          desc: 'The most comfortable commuter with ComforTec suspension and outstanding mileage — ideal for daily rides on any road.',
+          specs: [{k:'Engine',v:'102–115 cc'},{k:'Mileage',v:'up to 70 km/l'},{k:'Brakes',v:'Drum / Disc'}] },
+        { name: 'CT 110', tag: 'Rugged commuter', price: '₹68,000*', slot: 'model-ct110', placeholder: 'CT 110 photo', detailHref: './CT110.dc.html',
+          desc: 'Built tough for rural and semi-urban roads — high ground clearance, strong carrier and dependable engine.',
+          specs: [{k:'Engine',v:'115 cc'},{k:'Mileage',v:'up to 65 km/l'},{k:'Clearance',v:'170 mm'}] },
+        { name: 'Avenger', tag: 'Cruiser · relaxed riding', price: '₹1,10,000*', slot: 'model-avenger', placeholder: 'Avenger photo', detailHref: './Avenger.dc.html',
+          desc: 'Feel like God — low-slung cruiser comfort with a torquey 160/220 cc engine for highway touring.',
+          specs: [{k:'Engine',v:'160–220 cc'},{k:'Style',v:'Cruiser'},{k:'Seat height',v:'737 mm'}] },
+        { name: 'Freedom 125 CNG', tag: "World's first CNG motorcycle", price: '₹90,000*', slot: 'model-freedom', placeholder: 'Freedom 125 photo', detailHref: './Freedom125.dc.html',
+          desc: 'Runs on CNG and petrol both — cut fuel costs by up to 50%. Huge savings for daily commuters.',
+          specs: [{k:'Engine',v:'125 cc'},{k:'Fuel',v:'CNG + Petrol'},{k:'Range',v:'330+ km'}] },
+        { name: 'Chetak EV', tag: 'Electric scooter', price: '₹1,15,000*', slot: 'model-chetak', placeholder: 'Chetak photo', detailHref: './Chetak.dc.html',
+          desc: 'The iconic Chetak, reborn electric — metal body, premium finish, zero petrol and low running cost.',
+          specs: [{k:'Range',v:'up to 153 km'},{k:'Charging',v:'Home socket'},{k:'Body',v:'All metal'}] },
+      ],
+    };
+  }
+}
+
+</script>
+</body>
+</html>
