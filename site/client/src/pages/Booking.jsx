@@ -54,9 +54,9 @@ function BookingForm() {
   const [sending, setSending] = useState(false);
   const [submitted, setSubmitted] = useState(null);
 
-  // Posts to Netlify Forms (the hidden twin in index.html registers it), which
-  // records the enquiry and emails it on. Netlify only handles this on the
-  // deployed site — locally the post 404s and the WhatsApp fallback shows.
+  // Posts to Netlify Forms via public/__forms.html, which declares this form
+  // for the build bot. Netlify only handles this on the deployed site —
+  // locally the post 404s and the WhatsApp fallback shows.
   const submit = async () => {
     if (!name.trim() || !/^\d{10}$/.test(phone.trim())) {
       setFormError('Please enter your name and a valid 10-digit mobile number.');
@@ -65,7 +65,7 @@ function BookingForm() {
     setFormError('');
     setSending(true);
     try {
-      const res = await fetch('/', {
+      const res = await fetch('/__forms.html', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encodeForm({

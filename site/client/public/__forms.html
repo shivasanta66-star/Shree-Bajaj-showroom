@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Form definitions</title>
+<meta name="robots" content="noindex" />
+</head>
+<body>
+<!--
+  Not a page anyone visits. It exists so Netlify's build bot — which only
+  scans static HTML, never React-rendered markup — can detect the booking
+  form and register its fields.
+
+  src/pages/Booking.jsx posts here rather than to "/", because the SPA
+  catch-all rewrite in _redirects can intercept a POST to "/" before the
+  forms handler sees it. A request for a file that really exists is served
+  ahead of a non-forced redirect rule, so this path stays reachable.
+
+  Field names must match the ones Booking.jsx sends.
+-->
+<form name="booking" data-netlify="true" data-netlify-honeypot="bot-field">
+  <input type="text" name="name" />
+  <input type="tel" name="phone" />
+  <input type="text" name="model" />
+  <input type="text" name="bot-field" />
+</form>
+</body>
+</html>

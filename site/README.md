@@ -45,9 +45,18 @@ cd site/server && npm start       # serve client/dist from a static host or
 ## Where booking enquiries go
 
 The test-ride form posts to **Netlify Forms** under the form name `booking`.
-Netlify's build bot only scans static HTML, so `client/index.html` carries a
-hidden twin of the form declaring its fields — keep those field names in sync
-with `client/src/pages/Booking.jsx` or submissions will be rejected.
+
+Netlify's build bot only scans static HTML, never React-rendered markup, so
+`client/public/__forms.html` declares the form and its fields. The React form
+posts to that path rather than to `/`, because the SPA catch-all rewrite in
+`_redirects` can intercept a POST to `/` before the forms handler sees it —
+a real file is served ahead of a non-forced redirect rule, so `/__forms.html`
+stays reachable. Keep its field names in sync with
+`client/src/pages/Booking.jsx` or submissions will be rejected.
+
+If submissions fail on the deployed site, check **Site configuration → Forms**
+first: form detection must be enabled, and it only takes effect on builds run
+after it was switched on, so re-deploy after enabling it.
 
 Submissions appear under **Site configuration → Forms** in Netlify. To get
 them by email, add an email notification there (Forms → Form notifications)
