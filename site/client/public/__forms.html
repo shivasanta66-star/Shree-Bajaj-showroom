@@ -18,7 +18,8 @@
 
   Field names must match the ones Booking.jsx sends.
 -->
-<form name="booking" data-netlify="true" data-netlify-honeypot="bot-field">
+<form name="booking" netlify data-netlify="true" data-netlify-honeypot="bot-field">
+  <input type="hidden" name="form-name" value="booking" />
   <input type="text" name="name" />
   <input type="tel" name="phone" />
   <input type="text" name="model" />
