@@ -287,7 +287,14 @@ input[type='range'] { accent-color: var(--color-accent); }
 .contact-hours-row span:first-child { color: rgba(32, 30, 29, 0.65); }
 .contact-hours-row span:last-child { font-weight: 700; color: var(--color-text); }
 .contact-media-col { display: flex; flex-direction: column; gap: 20px; }
-.contact-media { height: 340px; }
+.contact-media { height: 260px; }
+/* The map stays in colour on purpose — the design system's grayscale rule is
+   for photography, and a desaturated map is markedly harder to read. */
+.contact-map {
+  height: 340px; border: 2px solid var(--color-divider); background: var(--color-surface);
+}
+.contact-map iframe { display: block; width: 100%; height: 100%; border: 0; }
+.map-directions { margin-top: 12px; }
 .contact-cta { background: var(--color-accent); color: #f3f2f2; padding: 28px 32px; }
 .contact-cta-title { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
 .contact-cta-sub { font-size: 15px; color: #ffe0d9; margin-bottom: 18px; }

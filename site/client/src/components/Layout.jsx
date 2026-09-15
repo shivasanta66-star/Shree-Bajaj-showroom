@@ -1,6 +1,7 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import {
   SITE,
+  mapDirectionsHref,
   NAV_LINKS,
   FOOTER_MOTORCYCLES,
   FOOTER_ELECTRIC,
@@ -76,14 +77,19 @@ function Footer() {
         <div>
           <div className="footer-col-title">Showroom</div>
           <div className="footer-brand-name">{SITE.name}</div>
-          <div className="footer-address">
+          <a
+            className="footer-address footer-link"
+            href={mapDirectionsHref()}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {SITE.addressLines.map((line, i) => (
               <span key={i}>
                 {line}
                 {i < SITE.addressLines.length - 1 && <br />}
               </span>
             ))}
-          </div>
+          </a>
           <div className="footer-hours">
             {SITE.hours.map((h) => (
               <div className="footer-hours-row" key={h.day}>

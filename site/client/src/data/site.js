@@ -10,11 +10,23 @@ export const SITE = {
   whatsapp: '919937601505',
   email: 'shivasanta66@gmail.com',
   addressLines: ['Main Road, Umerkote', 'Dist. Nabarangpur, Odisha — 764073'],
+  // What Google searches for when placing the map pin and starting
+  // directions. This is an address lookup, so the pin is approximate —
+  // replace it with the showroom's own Google Maps place link once the
+  // business listing is confirmed.
+  mapQuery: 'Shree Bajaj Motors, Main Road, Umerkote, Nabarangpur, Odisha 764073',
   hours: [
     { day: 'Mon – Sat', time: '9:00 AM – 8:00 PM' },
     { day: 'Sunday', time: '10:00 AM – 2:00 PM' },
   ],
 };
+
+// Both endpoints are keyless, so the map works with no Google API account.
+export const mapEmbedSrc = () =>
+  `https://www.google.com/maps?q=${encodeURIComponent(SITE.mapQuery)}&output=embed`;
+
+export const mapDirectionsHref = () =>
+  `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(SITE.mapQuery)}`;
 
 export const NAV_LINKS = [
   { to: '/', label: 'Home' },
