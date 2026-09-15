@@ -10,6 +10,16 @@
 </head>
 <body>
 <div id="root"></div>
+<!-- Netlify's build bot only scans static HTML, so it can never see the React
+     form. This hidden twin registers the "booking" form and its fields; the
+     React form posts to it at runtime. Field names must stay in sync with
+     src/pages/Booking.jsx. -->
+<form name="booking" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+  <input type="text" name="name" />
+  <input type="tel" name="phone" />
+  <input type="text" name="model" />
+  <input type="text" name="bot-field" />
+</form>
 <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>

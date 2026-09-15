@@ -42,6 +42,27 @@ cd site/server && npm start       # serve client/dist from a static host or
                                    # to it from the same origin
 ```
 
+## Where booking enquiries go
+
+The test-ride form posts to **Netlify Forms** under the form name `booking`.
+Netlify's build bot only scans static HTML, so `client/index.html` carries a
+hidden twin of the form declaring its fields — keep those field names in sync
+with `client/src/pages/Booking.jsx` or submissions will be rejected.
+
+Submissions appear under **Site configuration → Forms** in Netlify. To get
+them by email, add an email notification there (Forms → Form notifications)
+pointing at the showroom's address — that is a dashboard setting, not
+something in this repo.
+
+Every form also offers a **WhatsApp hand-off**: a button that opens WhatsApp
+to `SITE.whatsapp` with the customer's name, number and chosen model already
+typed. That path needs no backend and works even if the Netlify post fails,
+which is also the fallback the error message points at.
+
+Note that Netlify Forms only exists on the deployed site. Running locally,
+submitting returns a 404 and the form shows its WhatsApp fallback error —
+that is expected, not a bug.
+
 ## What changed vs. the Claude Design prototype
 
 The `.dc.html` files only run inside Claude Design's preview (a custom
@@ -68,13 +89,15 @@ deliberate changes:
    (`variant-freedom-discled`, `variant-chetak-3501`) so every variant can
    take a photo.
 
-Everything else — copy, prices, specs, the EMI formula, the booking form's
-validation, the footer, nav — is carried over as-is, including the
-placeholder content that was never confirmed in the design chats:
-**indicative Delhi ex-showroom prices** (not real Umerkote/Odisha rates) and
-the **placeholder email** `shreebajajumerkote@gmail.com`. Update
-`client/src/data/site.js` and `client/src/data/models.js` once you have the
-real figures.
+3. **The booking form actually submits.** In the prototype it only showed a
+   success message and discarded the data. See "Where booking enquiries go"
+   above.
+
+Everything else — copy, prices, specs, the EMI formula, the footer, nav — is
+carried over as-is, including the **indicative Delhi ex-showroom prices**
+that were never confirmed against real Umerkote/Odisha rates. Update
+`client/src/data/models.js` once you have the real figures. (Contact details
+in `client/src/data/site.js` are the dealership's real ones.)
 
 ## Where things live
 

@@ -1,13 +1,14 @@
-// Site-wide constants. Every value here is the placeholder content carried
-// over verbatim from the Claude Design export (project/*.dc.html) — prices
-// are indicative Delhi ex-showroom figures, the email is a placeholder the
-// dealership never confirmed. Swap these once real figures are available.
+// Site-wide constants. Contact details are the dealership's real ones;
+// prices elsewhere are still the indicative Delhi ex-showroom figures from
+// the Claude Design export, pending confirmed Umerkote rates.
 export const SITE = {
   name: 'Shree Bajaj Motors',
   location: 'Umerkote',
   phone: '9937601505',
   phoneFormatted: '99376 01505',
-  email: 'shreebajajumerkote@gmail.com',
+  // wa.me needs the country code and no punctuation.
+  whatsapp: '919937601505',
+  email: 'shivasanta66@gmail.com',
   addressLines: ['Main Road, Umerkote', 'Dist. Nabarangpur, Odisha — 764073'],
   hours: [
     { day: 'Mon – Sat', time: '9:00 AM – 8:00 PM' },

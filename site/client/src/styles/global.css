@@ -237,6 +237,21 @@ input[type='range'] { accent-color: var(--color-accent); }
 }
 .form-submit:hover { background: var(--color-accent-hover); }
 .form-note { font-size: 12.5px; color: var(--color-text-soft); }
+.form-submit:disabled { opacity: 0.55; cursor: not-allowed; }
+.form-or {
+  display: flex; align-items: center; gap: 12px; margin: -4px 0;
+  font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--color-text-soft);
+}
+.form-or::before, .form-or::after {
+  content: ''; flex: 1; height: 1px; background: var(--color-divider-faint);
+}
+/* The design system is a strict mono palette, so the WhatsApp action keeps the
+   house button styling and carries only the glyph as its brand signal. */
+.btn-whatsapp { gap: 8px; }
+.btn-block-link { display: flex; width: 100%; }
+.success-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 16px; }
+.success-actions .success-btn { margin-top: 0; }
 .success-box { background: #f8f4f4; padding: 22px 24px; }
 .success-title { font-weight: 800; font-size: 18px; color: var(--color-accent); margin-bottom: 6px; font-family: var(--font-heading); }
 .success-body { font-size: 15px; color: var(--color-text); line-height: 1.55; }
