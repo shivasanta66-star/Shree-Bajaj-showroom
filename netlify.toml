@@ -1,0 +1,14 @@
+# Netlify config for the React client in site/client.
+# The Express upload API in site/server is NOT deployable here (Netlify has no
+# persistent server/disk) — host it separately and set VITE_API_BASE to its
+# origin in Netlify's environment variables.
+[build]
+  base = "site/client"
+  command = "npm run build"
+  publish = "dist"
+
+# React Router needs every path served by index.html.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
