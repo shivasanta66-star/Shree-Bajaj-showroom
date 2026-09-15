@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { SITE, BOOKING_MODEL_OPTIONS } from '../data/site';
+import { SITE, BOOKING_MODEL_OPTIONS, BOOKING_PURPOSE_OPTIONS } from '../data/site';
 
 const INTEREST_RATE = 10.5; // % p.a., reducing balance — matches the Booking.dc.html default
 
@@ -10,10 +10,15 @@ const encodeForm = (data) =>
     .map((k) => `${encodeURIComponent(k)}=${encodeURIComponent(data[k])}`)
     .join('&');
 
-const whatsappHref = ({ name, phone, model }) => {
-  const lines = ['Hi Shree Bajaj Motors, I would like to book a test ride.'];
+const whatsappHref = ({ name, phone, model, purpose }) => {
+  const opener =
+    purpose === 'Booking'
+      ? 'Hi Shree Bajaj Motors, I would like to book a vehicle.'
+      : 'Hi Shree Bajaj Motors, I would like to book a test ride.';
+  const lines = [opener];
   if (name.trim()) lines.push(`Name: ${name.trim()}`);
   if (phone.trim()) lines.push(`Mobile: ${phone.trim()}`);
+  lines.push(`Request: ${purpose}`);
   lines.push(`Model: ${model}`);
   return `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(lines.join('\n'))}`;
 };
@@ -49,6 +54,7 @@ export default function Booking() {
 function BookingForm() {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+  const [purpose, setPurpose] = useState(BOOKING_PURPOSE_OPTIONS[0]);
   const [model, setModel] = useState(BOOKING_MODEL_OPTIONS[0]);
   const [formError, setFormError] = useState('');
   const [sending, setSending] = useState(false);
@@ -72,11 +78,12 @@ function BookingForm() {
           'form-name': 'booking',
           name: name.trim(),
           phone: phone.trim(),
+          purpose,
           model,
         }),
       });
       if (!res.ok) throw new Error('Request failed');
-      setSubmitted({ name: name.trim(), phone: phone.trim(), model });
+      setSubmitted({ name: name.trim(), phone: phone.trim(), purpose, model });
     } catch {
       setFormError(
         `Sorry, that didn't go through. Please WhatsApp or call us on ${SITE.phoneFormatted}.`
@@ -101,7 +108,8 @@ function BookingForm() {
           <div className="success-title">✓ Request received!</div>
           <div className="success-body">
             Thank you, {submitted.name}. Our team will call you shortly on the number provided to
-            confirm your {submitted.model} test ride.
+            confirm your {submitted.model}{' '}
+            {submitted.purpose === 'Booking' ? 'booking' : 'test ride'}.
           </div>
           <div className="success-actions">
             <a
@@ -142,6 +150,18 @@ function BookingForm() {
             />
           </div>
           <div>
+            <label className="field-label">Request Type</label>
+            <select
+              className="field-input"
+              value={purpose}
+              onChange={(e) => setPurpose(e.target.value)}
+            >
+              {BOOKING_PURPOSE_OPTIONS.map((opt) => (
+                <option key={opt}>{opt}</option>
+              ))}
+            </select>
+          </div>
+          <div>
             <label className="field-label">Interested Model</label>
             <select className="field-input" value={model} onChange={(e) => setModel(e.target.value)}>
               {BOOKING_MODEL_OPTIONS.map((opt) => (
@@ -156,7 +176,7 @@ function BookingForm() {
           <div className="form-or">or</div>
           <a
             className="btn btn-outline btn-whatsapp btn-block-link"
-            href={whatsappHref({ name, phone, model })}
+            href={whatsappHref({ name, phone, model, purpose })}
             target="_blank"
             rel="noopener noreferrer"
           >

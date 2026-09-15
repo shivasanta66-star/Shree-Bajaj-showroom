@@ -55,6 +55,8 @@ export const FOOTER_QUICK_LINKS = [
   { label: 'Contact & Directions', to: '/contact' },
 ];
 
+export const BOOKING_PURPOSE_OPTIONS = ['Test Ride', 'Booking'];
+
 export const BOOKING_MODEL_OPTIONS = [
   'Pulsar Series',
   'Platina 100 / 110',
