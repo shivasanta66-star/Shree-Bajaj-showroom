@@ -53,18 +53,18 @@ export const FOOTER_ELECTRIC = [
 ];
 
 export const FOOTER_SERVICES = [
-  { label: 'Easy Finance & EMI', to: '/booking' },
-  { label: 'Exchange Bonus', to: '/offers' },
-  { label: 'Authorized Service', to: '/contact' },
+  { label: 'Finance and EMI', to: '/booking' },
+  { label: 'Exchange your old bike', to: '/offers' },
+  { label: 'Servicing', to: '/contact' },
 ];
 
 export const FOOTER_QUICK_LINKS = [
   { label: 'Home', to: '/' },
-  { label: 'All Models', to: '/models' },
-  { label: 'Current Offers', to: '/offers' },
-  { label: 'Book a Test Ride', to: '/booking' },
-  { label: 'EMI Calculator', to: '/booking' },
-  { label: 'Contact & Directions', to: '/contact' },
+  { label: 'Models and prices', to: '/models' },
+  { label: 'Offers', to: '/offers' },
+  { label: 'Book a test ride', to: '/booking' },
+  { label: 'EMI calculator', to: '/booking' },
+  { label: 'Find us', to: '/contact' },
 ];
 
 export const BOOKING_PURPOSE_OPTIONS = ['Test Ride', 'Booking'];
@@ -80,44 +80,37 @@ export const BOOKING_MODEL_OPTIONS = [
 
 export const OFFERS = [
   {
-    title: 'Low Down Payment Scheme',
+    title: 'Low down payment',
     badge: 'Finance',
-    desc: 'Ride home a new Platina or CT 110 with a down payment starting at just ₹4,999. Balance on easy monthly EMI.',
+    desc: 'Take home a new Platina or CT 110 for a down payment from ₹4,999 and pay the rest monthly.',
     fine: '*Subject to financier approval and documentation.',
   },
   {
-    title: 'Exchange Bonus up to ₹5,000',
+    title: 'Exchange bonus up to ₹5,000',
     badge: 'Exchange',
-    desc: 'Trade in your old two-wheeler of any brand and get an extra exchange bonus over the market valuation.',
+    desc: 'Bring in your old two-wheeler, any brand. We value it and add a bonus on top.',
     fine: '*Valuation done at showroom; bonus varies by model.',
   },
   {
-    title: 'Pulsar Festive Cashback',
+    title: 'Pulsar festive cashback',
     badge: 'Limited',
-    desc: 'Special cashback of up to ₹3,000 on select Pulsar variants booked this month.',
+    desc: 'Up to ₹3,000 back on some Pulsar variants if you book this month.',
     fine: '*On select variants, while stocks last.',
   },
   {
-    title: 'Chetak EV Charger Offer',
+    title: 'Chetak charger installation',
     badge: 'Electric',
-    desc: 'Free home charger installation assistance with every Chetak EV delivery this month.',
+    desc: "Buy a Chetak this month and we'll help get the charger installed at your home for free.",
     fine: '*Standard installation within Umerkote town limits.',
   },
 ];
 
-export const WHY_US = [
-  { title: 'New Vehicle Sales', desc: 'Full Bajaj range on display with on-road price quotes and quick delivery.' },
-  { title: 'Authorized Service', desc: 'Trained mechanics, genuine Bajaj spares and free-service support.' },
-  { title: 'Easy Finance', desc: 'Tie-ups with leading financiers — low down payment, fast approval.' },
-  { title: 'Exchange & RTO', desc: 'Old-vehicle exchange valuation and complete registration assistance.' },
-];
-
 export const SERVICES_OFFERED = [
-  { title: 'Free Service Camps', desc: 'Periodic free-service camps for all Bajaj owners at the showroom.', slot: 'service-free-camps', placeholder: 'Free service camp photo' },
-  { title: 'Periodic & General Servicing', desc: 'Routine maintenance and repairs by trained Bajaj technicians.', slot: 'service-general-servicing', placeholder: 'Servicing photo' },
-  { title: 'Genuine Spare Parts', desc: 'Only genuine Bajaj parts and accessories, always in stock.', slot: 'service-spare-parts', placeholder: 'Spare parts photo' },
-  { title: 'Insurance Renewal', desc: 'On-the-spot two-wheeler insurance issue and renewal support.', slot: 'service-insurance', placeholder: 'Insurance renewal photo' },
-  { title: 'Accessories Fitting', desc: 'Fitment of genuine accessories — guards, saddle bags, and more.', slot: 'service-accessories', placeholder: 'Accessories fitting photo' },
-  { title: 'Battery Check-up (EV)', desc: 'Health check and diagnostics for Chetak EV batteries.', slot: 'service-battery-checkup', placeholder: 'Battery check-up photo' },
-  { title: 'Exchange / Old Bike Valuation', desc: 'Fair valuation of your old bike towards a new purchase.', slot: 'service-exchange-valuation', placeholder: 'Exchange valuation photo' },
+  { title: 'Free service camps', desc: 'Every so often we hold a free service day at the showroom for Bajaj owners.', slot: 'service-free-camps', placeholder: 'Free service camp photo' },
+  { title: 'Servicing and repairs', desc: 'Regular services and repairs, done by Bajaj-trained mechanics.', slot: 'service-general-servicing', placeholder: 'Servicing photo' },
+  { title: 'Genuine spares', desc: 'We only fit genuine Bajaj parts, and keep the common ones in stock.', slot: 'service-spare-parts', placeholder: 'Spare parts photo' },
+  { title: 'Insurance', desc: 'New policies and renewals, done at the counter while you wait.', slot: 'service-insurance', placeholder: 'Insurance renewal photo' },
+  { title: 'Accessories', desc: 'Crash guards, saddle bags, seat covers and the like, fitted here.', slot: 'service-accessories', placeholder: 'Accessories fitting photo' },
+  { title: 'Chetak battery check', desc: 'Battery health check and diagnostics for Chetak owners.', slot: 'service-battery-checkup', placeholder: 'Battery check-up photo' },
+  { title: 'Old bike exchange', desc: 'Bring your old bike in and we will give you a price for it against a new one.', slot: 'service-exchange-valuation', placeholder: 'Exchange valuation photo' },
 ];

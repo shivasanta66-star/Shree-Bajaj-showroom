@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import BikeArt from '../components/BikeArt';
 import ImageSlot from '../components/ImageSlot';
 import { MODELS } from '../data/models';
-import { WHY_US, SERVICES_OFFERED } from '../data/site';
+import { SITE, SERVICES_OFFERED } from '../data/site';
 
 const HERO_ART = MODELS[0].detail.variants.find((v) => v.slot === 'variant-pulsarns200').art;
 
@@ -12,30 +12,18 @@ export default function Home() {
       <section className="hero">
         <div className="hero-inner">
           <div>
-            <span className="kicker">Authorized Bajaj Dealership</span>
-            <h1 className="hero-title">Your trusted Bajaj showroom in Umerkote</h1>
+            <h1 className="hero-title">Bajaj bikes and scooters in Umerkote</h1>
             <p className="hero-desc">
-              Sales, service, genuine spares and easy finance — the complete Bajaj range from
-              Pulsar to Chetak EV, right here in Nabarangpur district.
+              New bikes, servicing, genuine spares and finance, all at one showroom. Come in for a
+              test ride, or just to have a look around.
             </p>
             <div className="hero-actions">
-              <Link to="/booking" className="btn btn-primary">Book a Test Ride</Link>
-              <Link to="/models" className="btn btn-outline">Explore Models</Link>
+              <Link to="/booking" className="btn btn-primary">Book a test ride</Link>
+              <Link to="/models" className="btn btn-outline">See the bikes</Link>
             </div>
-            <div className="hero-stats">
-              <div>
-                <div className="stat-num">6+</div>
-                <div className="stat-label">Model lines</div>
-              </div>
-              <div>
-                <div className="stat-num">100%</div>
-                <div className="stat-label">Genuine spares</div>
-              </div>
-              <div>
-                <div className="stat-num">Easy</div>
-                <div className="stat-label">EMI finance</div>
-              </div>
-            </div>
+            <p className="hero-call">
+              Or call us on <a href={`tel:${SITE.phone}`}>{SITE.phoneFormatted}</a>
+            </p>
           </div>
           <div className="hero-media grayscale">
             <ImageSlot
@@ -49,10 +37,9 @@ export default function Home() {
       <hr className="hr" />
 
       <section className="section">
-        <span className="kicker">Model Range</span>
         <div className="section-head">
-          <h2 className="section-title">Popular at our showroom</h2>
-          <Link to="/models" className="link-arrow">View all models →</Link>
+          <h2 className="section-title">What we sell</h2>
+          <Link to="/models" className="link-arrow">All models and prices →</Link>
         </div>
         <div className="model-grid">
           {MODELS.map((m) => (
@@ -74,25 +61,25 @@ export default function Home() {
       </section>
 
       <section className="section-band">
-        <div className="why-band-inner">
-          <span className="kicker">Why Us</span>
-          <h2 className="section-title-sm">Everything you need, sorted</h2>
-          <div className="why-grid">
-            {WHY_US.map((s) => (
-              <div key={s.title}>
-                <div className="why-title">{s.title}</div>
-                <div className="why-desc">{s.desc}</div>
-              </div>
-            ))}
+        <div className="about-band">
+          <h2 className="section-title-sm">Buying from us</h2>
+          <div className="about-text">
+            <p>
+              We sell the whole Bajaj range, from the Platina to the Chetak, and we service what we
+              sell. Genuine spares are kept in stock, so most repairs don't mean waiting for parts.
+            </p>
+            <p>
+              If you need a loan, we'll sort out the finance paperwork with you. If you have an old
+              bike, bring it along and we'll give you a price for it. Registration and RTO work is
+              handled here too, so there's no running around.
+            </p>
           </div>
         </div>
       </section>
 
       <section className="section">
-        <div className="services-head">
-          <span className="kicker">At Your Service</span>
-          <h2>Services We Offer</h2>
-          <p>Everything you need to buy, run and maintain your Bajaj, all under one roof.</p>
+        <div className="section-head">
+          <h2 className="section-title">After you buy</h2>
         </div>
         <div className="services-grid">
           {SERVICES_OFFERED.map((sv) => (
@@ -112,13 +99,12 @@ export default function Home() {
 
       <section className="split-band">
         <div>
-          <span className="kicker">Offers</span>
-          <h2 className="section-title">Festive offers running now</h2>
+          <h2 className="section-title">This month's offers</h2>
           <p className="split-band-desc">
-            Low down payments, exchange bonuses and special EMI schemes on select models. Visit
-            the showroom or check current offers online.
+            A low down payment on commuters, an exchange bonus for your old bike, and cashback on
+            some Pulsars.
           </p>
-          <Link to="/offers" className="btn btn-primary">See Current Offers</Link>
+          <Link to="/offers" className="btn btn-primary">See the offers</Link>
         </div>
         <div className="split-media grayscale">
           <ImageSlot id="offers-banner" placeholder="Drop an offers banner image" />

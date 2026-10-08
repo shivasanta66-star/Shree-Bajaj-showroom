@@ -16,12 +16,12 @@ export default function ModelDetail() {
         <div className="detail-hero-inner">
           <div>
             <Link to="/models" className="back-link">← All models</Link>
-            <span className="detail-kicker">{d.kicker}</span>
             <h1 className="detail-title">{d.title}</h1>
+            <div className="detail-price">From {model.price} ex-showroom</div>
             <p className="detail-desc">{d.desc}</p>
             <div className="hero-actions">
-              <Link to="/booking" className="btn btn-primary">Book a Test Ride</Link>
-              <a href={`tel:${SITE.phone}`} className="btn btn-outline">Call for Price</a>
+              <Link to="/booking" className="btn btn-primary">Book a test ride</Link>
+              <a href={`tel:${SITE.phone}`} className="btn btn-outline">Call for on-road price</a>
             </div>
           </div>
           <div className="detail-media grayscale">
@@ -32,8 +32,7 @@ export default function ModelDetail() {
       <hr className="hr" />
 
       <section className="section">
-        <span className="kicker">Specifications</span>
-        <h2 className="section-title-sm">Key Specifications</h2>
+        <h2 className="section-title-sm">Specifications</h2>
         <div className="spec-grid">
           {d.specs.map((sp) => (
             <div className="spec-card" key={sp.k}>
@@ -46,7 +45,6 @@ export default function ModelDetail() {
 
       <section className="section-band">
         <div className="section">
-          <span className="kicker">Line-up</span>
           <h2 className="section-title-sm">Variants</h2>
           <div className="variants-grid">
             {d.variants.map((v) => (
@@ -63,33 +61,31 @@ export default function ModelDetail() {
             ))}
           </div>
           <div className="variants-note">
-            *Indicative ex-showroom prices; call {SITE.phoneFormatted} for the exact on-road price in Umerkote.
+            *Approximate ex-showroom prices. Call {SITE.phoneFormatted} for the on-road price in Umerkote.
           </div>
         </div>
       </section>
 
       <section className="section">
-        <span className="kicker">Why It Works</span>
-        <h2 className="section-title-sm">Why riders choose the {model.name}</h2>
-        <div className="highlights-grid">
+        <h2 className="section-title-sm">Good to know</h2>
+        <ul className="notes">
           {d.highlights.map((h) => (
-            <div className="highlight-card" key={h.title}>
-              <div className="highlight-title">{h.title}</div>
-              <div className="highlight-desc">{h.desc}</div>
-            </div>
+            <li key={h.title}>
+              <strong>{h.title}.</strong> {h.desc}
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
 
       <div className="cta-wrap">
-        <div className="cta-banner">
+        <div className="cta-strip">
           <div>
-            <div className="cta-banner-title">{d.ctaTitle}</div>
-            <div className="cta-banner-sub">Test rides available at the Umerkote showroom — book yours today.</div>
+            <div className="cta-strip-title">{d.ctaTitle}</div>
+            <div className="cta-strip-sub">We have test bikes at the showroom. Book a slot, or just call first.</div>
           </div>
           <div className="cta-actions">
-            <Link to="/booking" className="btn btn-on-dark btn-sm">Book Test Ride</Link>
-            <a href={`tel:${SITE.phone}`} className="btn btn-outline-on-accent btn-sm">Call {SITE.phoneFormatted}</a>
+            <Link to="/booking" className="btn btn-primary btn-sm">Book a test ride</Link>
+            <a href={`tel:${SITE.phone}`} className="btn btn-outline btn-sm">Call {SITE.phoneFormatted}</a>
           </div>
         </div>
       </div>

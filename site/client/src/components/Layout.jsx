@@ -39,7 +39,7 @@ function Navbar() {
             </NavLink>
           ))}
           <NavLink to="/booking" className="nav-cta">
-            Book a Test Ride
+            Book a test ride
           </NavLink>
         </nav>
       </div>
@@ -68,12 +68,12 @@ function Footer() {
       <div className="footer-inner">
         <FooterCol title="Motorcycles" links={FOOTER_MOTORCYCLES} />
         <div>
-          <FooterCol title="Electric Scooters" links={FOOTER_ELECTRIC} />
+          <FooterCol title="Electric" links={FOOTER_ELECTRIC} />
           <div style={{ marginTop: 28 }}>
             <FooterCol title="Services" links={FOOTER_SERVICES} />
           </div>
         </div>
-        <FooterCol title="Quick Links" links={FOOTER_QUICK_LINKS} />
+        <FooterCol title="Pages" links={FOOTER_QUICK_LINKS} />
         <div>
           <div className="footer-col-title">Showroom</div>
           <div className="footer-brand-name">{SITE.name}</div>
@@ -103,7 +103,7 @@ function Footer() {
       <div className="footer-strip">
         <div className="footer-strip-inner">
           <div>
-            <div className="footer-strip-label">Contact</div>
+            <div className="footer-strip-label">Phone</div>
             <a className="footer-phone" href={`tel:${SITE.phone}`}>{SITE.phoneFormatted}</a>
           </div>
           <div>
@@ -111,15 +111,15 @@ function Footer() {
             <a className="footer-email" href={`mailto:${SITE.email}`}>{SITE.email}</a>
           </div>
           <div>
-            <div className="footer-strip-label">Need Help Choosing?</div>
-            <div className="footer-strip-note">Call or WhatsApp us — sales, service and finance enquiries</div>
+            <div className="footer-strip-label">Not sure which bike?</div>
+            <div className="footer-strip-note">Call or WhatsApp us and we'll talk it through with you.</div>
           </div>
         </div>
       </div>
       <div className="footer-bottom">
         <div className="footer-bottom-inner">
-          <div>© {SITE.name}, {SITE.location}. All Rights Reserved.</div>
-          <div>Authorized Bajaj Dealership · Sales · Service · Spares</div>
+          <div>© {new Date().getFullYear()} {SITE.name}, {SITE.location}</div>
+          <div>Authorised Bajaj dealer</div>
         </div>
       </div>
     </div>
