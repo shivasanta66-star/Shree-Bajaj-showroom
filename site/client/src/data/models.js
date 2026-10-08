@@ -11,6 +11,7 @@ export const MODELS = [
     listTag: 'Sport · 125cc to 250cc',
     price: '₹85,000*',
     cardSlot: 'card-pulsar',
+    art: { type: 'sport', color: '#c8102e', accent: '#2d2b2b', frame: '#2d2b2b' },
     rowSlot: 'model-pulsar',
     placeholder: 'Pulsar photo',
     listDesc: "India's favourite sports bike family — Pulsar 125, N150, NS200 and more. Aggressive styling, punchy engines and everyday practicality.",
@@ -36,9 +37,9 @@ export const MODELS = [
         { k: 'Lighting', v: 'LED headlamps' },
       ],
       variants: [
-        { name: 'Pulsar 125', slot: 'variant-pulsar125', placeholder: 'Pulsar 125 photo', price: '₹87,000*', desc: 'The most affordable Pulsar — 125cc sporty commuter with all-LED lighting on the 2026 model.' },
-        { name: 'Pulsar N125', slot: 'variant-pulsarn125', placeholder: 'Pulsar N125 photo', price: '₹95,000*', desc: 'Fresh hexagonal design, just 125 kg kerb weight — fastest 0–60 in its segment.' },
-        { name: 'Pulsar NS200', slot: 'variant-pulsarns200', placeholder: 'Pulsar NS200 photo', price: '₹1,36,000*', desc: 'Liquid-cooled 199.5cc streetfighter with 24.5 PS and dual-channel ABS.' },
+        { name: 'Pulsar 125', slot: 'variant-pulsar125', art: { type: 'sport', color: '#1b1b1b', accent: '#d4242a', frame: '#2d2b2b', exhaust: 'side', alloy: true }, placeholder: 'Pulsar 125 photo', price: '₹87,000*', desc: 'The most affordable Pulsar — 125cc sporty commuter with all-LED lighting on the 2026 model.' },
+        { name: 'Pulsar N125', slot: 'variant-pulsarn125', art: { type: 'sport', color: '#2c5aa0', accent: '#1b1b1b', frame: '#2d2b2b', exhaust: 'under' }, placeholder: 'Pulsar N125 photo', price: '₹95,000*', desc: 'Fresh hexagonal design, just 125 kg kerb weight — fastest 0–60 in its segment.' },
+        { name: 'Pulsar NS200', slot: 'variant-pulsarns200', art: { type: 'sport', color: '#ececec', accent: '#c8102e', frame: '#c8102e', exhaust: 'under' }, placeholder: 'Pulsar NS200 photo', price: '₹1,36,000*', desc: 'Liquid-cooled 199.5cc streetfighter with 24.5 PS and dual-channel ABS.' },
       ],
       highlights: [
         { title: 'Performance first', desc: 'Best-in-class power-to-weight ratios across the range — from nimble traffic cutters to genuine streetfighters.' },
@@ -57,6 +58,7 @@ export const MODELS = [
     listTag: 'Commuter · comfort king',
     price: '₹70,000*',
     cardSlot: 'card-platina',
+    art: { type: 'commuter', color: '#8a1c1c', accent: '#d9b44a', disc: true, alloy: true },
     rowSlot: 'model-platina',
     placeholder: 'Platina photo',
     listDesc: 'The most comfortable commuter with ComforTec suspension and outstanding mileage — ideal for daily rides on any road.',
@@ -82,8 +84,8 @@ export const MODELS = [
         { k: 'Braking', v: 'Drum CBS / ABS option' },
       ],
       variants: [
-        { name: 'Platina 110 Drum', slot: 'variant-platina-drum', placeholder: 'Platina 110 Drum photo', price: '₹70,000*', desc: 'Drum brakes with CBS — the value pick with the same comfort and mileage.' },
-        { name: 'Platina 110 ABS', slot: 'variant-platina-abs', placeholder: 'Platina 110 ABS photo', price: '₹75,000*', desc: 'Front disc with single-channel ABS — a segment-first safety feature.' },
+        { name: 'Platina 110 Drum', slot: 'variant-platina-drum', art: { type: 'commuter', color: '#1f4d8c', accent: '#cfccca', disc: false, alloy: false }, placeholder: 'Platina 110 Drum photo', price: '₹70,000*', desc: 'Drum brakes with CBS — the value pick with the same comfort and mileage.' },
+        { name: 'Platina 110 ABS', slot: 'variant-platina-abs', art: { type: 'commuter', color: '#8a1c1c', accent: '#d9b44a', disc: true, alloy: true }, placeholder: 'Platina 110 ABS photo', price: '₹75,000*', desc: 'Front disc with single-channel ABS — a segment-first safety feature.' },
       ],
       highlights: [
         { title: 'Built for bad roads', desc: '135mm-travel telescopic fork and Nitrox spring-on-spring rear suspension soak up potholes and speed breakers.' },
@@ -102,6 +104,7 @@ export const MODELS = [
     listTag: 'Rugged commuter',
     price: '₹68,000*',
     cardSlot: 'card-ct110',
+    art: { type: 'commuter', color: '#2b2b2b', accent: '#e05a1b', rugged: true, disc: false, alloy: false },
     rowSlot: 'model-ct110',
     placeholder: 'CT 110 photo',
     listDesc: 'Built tough for rural and semi-urban roads — high ground clearance, strong carrier and dependable engine.',
@@ -127,7 +130,7 @@ export const MODELS = [
         { k: 'Kerb Weight', v: '124 kg' },
       ],
       variants: [
-        { name: 'CT 110X Standard', slot: 'variant-ct110x-std', placeholder: 'CT 110X photo', price: '₹68,000*', desc: 'Single loaded variant — bash plate, metal tail rack, tank grips, USB charging port and CBS drum brakes.' },
+        { name: 'CT 110X Standard', slot: 'variant-ct110x-std', art: { type: 'commuter', color: '#2b2b2b', accent: '#e05a1b', rugged: true, disc: false, alloy: false }, placeholder: 'CT 110X photo', price: '₹68,000*', desc: 'Single loaded variant — bash plate, metal tail rack, tank grips, USB charging port and CBS drum brakes.' },
       ],
       highlights: [
         { title: 'Rugged by design', desc: 'Circular belly pan protects the engine, block-pattern tyres grip loose surfaces, and the steel rack carries real loads.' },
@@ -146,6 +149,7 @@ export const MODELS = [
     listTag: 'Cruiser · relaxed riding',
     price: '₹1,10,000*',
     cardSlot: 'card-avenger',
+    art: { type: 'cruiser', color: '#5b1a1a', accent: '#d9b44a' },
     rowSlot: 'model-avenger',
     placeholder: 'Avenger photo',
     listDesc: 'Feel like God — low-slung cruiser comfort with a torquey 160/220 cc engine for highway touring.',
@@ -171,8 +175,8 @@ export const MODELS = [
         { k: 'Style', v: 'Classic cruiser' },
       ],
       variants: [
-        { name: 'Avenger Street 160', slot: 'variant-avenger-street160', placeholder: 'Avenger Street 160 photo', price: '₹1,12,000*', desc: 'Urban cruiser with a refined 160cc engine — relaxed ergonomics for daily city rides.' },
-        { name: 'Avenger Cruise 220', slot: 'variant-avenger-cruise220', placeholder: 'Avenger Cruise 220 photo', price: '₹1,29,000*', desc: 'Oil-cooled 220cc DTS-i engine with chrome highlights — the most affordable highway cruiser in India.' },
+        { name: 'Avenger Street 160', slot: 'variant-avenger-street160', art: { type: 'cruiser', color: '#3a3a3a', accent: '#8f8b89' }, placeholder: 'Avenger Street 160 photo', price: '₹1,12,000*', desc: 'Urban cruiser with a refined 160cc engine — relaxed ergonomics for daily city rides.' },
+        { name: 'Avenger Cruise 220', slot: 'variant-avenger-cruise220', art: { type: 'cruiser', color: '#5b1a1a', accent: '#d9b44a' }, placeholder: 'Avenger Cruise 220 photo', price: '₹1,29,000*', desc: 'Oil-cooled 220cc DTS-i engine with chrome highlights — the most affordable highway cruiser in India.' },
       ],
       highlights: [
         { title: 'Laid-back comfort', desc: 'Low 737mm seat, wide handlebars and a cushioned backrest make every ride relaxed — for rider and pillion.' },
@@ -191,6 +195,7 @@ export const MODELS = [
     listTag: "World's first CNG motorcycle",
     price: '₹90,000*',
     cardSlot: 'card-freedom',
+    art: { type: 'cng', color: '#2b6cb0', accent: '#1f9d55', disc: true, led: true },
     rowSlot: 'model-freedom',
     placeholder: 'Freedom 125 photo',
     listDesc: 'Runs on CNG and petrol both — cut fuel costs by up to 50%. Huge savings for daily commuters.',
@@ -216,9 +221,9 @@ export const MODELS = [
         { k: 'Combined Range', v: 'up to 330 km' },
       ],
       variants: [
-        { name: 'NG04 Drum', slot: 'variant-freedom-drum', placeholder: 'Freedom NG04 Drum photo', price: '₹90,000*', desc: 'Base variant with drum brakes — the most affordable way into CNG riding.' },
-        { name: 'NG04 Drum LED', slot: 'variant-freedom-drumled', placeholder: 'Freedom NG04 Drum LED photo', price: '₹95,000*', desc: 'Adds an LED headlight for better night visibility.' },
-        { name: 'NG04 Disc LED', slot: 'variant-freedom-discled', placeholder: 'Freedom NG04 Disc LED photo', price: '₹1,10,000*', desc: 'Top variant with front disc brake, LED headlight and Bluetooth-enabled LCD console.' },
+        { name: 'NG04 Drum', slot: 'variant-freedom-drum', art: { type: 'cng', color: '#1e3d6b', accent: '#1f9d55', disc: false }, placeholder: 'Freedom NG04 Drum photo', price: '₹90,000*', desc: 'Base variant with drum brakes — the most affordable way into CNG riding.' },
+        { name: 'NG04 Drum LED', slot: 'variant-freedom-drumled', art: { type: 'cng', color: '#5a5f63', accent: '#1f9d55', disc: false, led: true }, placeholder: 'Freedom NG04 Drum LED photo', price: '₹95,000*', desc: 'Adds an LED headlight for better night visibility.' },
+        { name: 'NG04 Disc LED', slot: 'variant-freedom-discled', art: { type: 'cng', color: '#2b6cb0', accent: '#1f9d55', disc: true, led: true }, placeholder: 'Freedom NG04 Disc LED photo', price: '₹1,10,000*', desc: 'Top variant with front disc brake, LED headlight and Bluetooth-enabled LCD console.' },
       ],
       highlights: [
         { title: 'Cut fuel costs by up to 50%', desc: 'CNG running costs are roughly half of petrol. With 102 km/kg claimed mileage, daily commutes become dramatically cheaper.' },
@@ -237,6 +242,7 @@ export const MODELS = [
     listTag: 'Electric scooter',
     price: '₹1,15,000*',
     cardSlot: 'card-chetak',
+    art: { type: 'scooter', color: '#2f6f73', accent: '#cfccca', disc: true },
     rowSlot: 'model-chetak',
     placeholder: 'Chetak photo',
     listDesc: 'The iconic Chetak, reborn electric — metal body, premium finish, zero petrol and low running cost.',
@@ -262,9 +268,9 @@ export const MODELS = [
         { k: 'Protection', v: 'IP67 battery & motor' },
       ],
       variants: [
-        { name: 'Chetak 3503', slot: 'variant-chetak-3503', placeholder: 'Chetak 3503 photo', price: '₹1,20,000*', desc: 'Value variant on the 35 Series platform — 151 km claimed range and the same 35L boot.' },
-        { name: 'Chetak 3502', slot: 'variant-chetak-3502', placeholder: 'Chetak 3502 photo', price: '₹1,27,000*', desc: 'Adds a TFT touchscreen with turn-by-turn navigation and faster charging.' },
-        { name: 'Chetak 3501', slot: 'variant-chetak-3501', placeholder: 'Chetak 3501 photo', price: '₹1,34,000*', desc: 'Top variant — 153 km range, front disc brake and the full TecPac feature set.' },
+        { name: 'Chetak 3503', slot: 'variant-chetak-3503', art: { type: 'scooter', color: '#c9b28a', accent: '#8f8b89', disc: false }, placeholder: 'Chetak 3503 photo', price: '₹1,20,000*', desc: 'Value variant on the 35 Series platform — 151 km claimed range and the same 35L boot.' },
+        { name: 'Chetak 3502', slot: 'variant-chetak-3502', art: { type: 'scooter', color: '#1f2a44', accent: '#cfccca', disc: false }, placeholder: 'Chetak 3502 photo', price: '₹1,27,000*', desc: 'Adds a TFT touchscreen with turn-by-turn navigation and faster charging.' },
+        { name: 'Chetak 3501', slot: 'variant-chetak-3501', art: { type: 'scooter', color: '#8c1d2b', accent: '#cfccca', disc: true }, placeholder: 'Chetak 3501 photo', price: '₹1,34,000*', desc: 'Top variant — 153 km range, front disc brake and the full TecPac feature set.' },
       ],
       highlights: [
         { title: 'Zero petrol, tiny bills', desc: 'Charge overnight from a normal home socket — running costs are a fraction of a petrol scooter.' },

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import BikeArt from '../components/BikeArt';
 import ImageSlot from '../components/ImageSlot';
 import { MODELS } from '../data/models';
 import { SITE } from '../data/site';
@@ -20,7 +21,7 @@ export default function Models() {
         {MODELS.map((m) => (
           <div className="model-row" key={m.slug}>
             <div className="model-row-media grayscale">
-              <ImageSlot id={m.rowSlot} placeholder={m.placeholder} />
+              <ImageSlot id={m.rowSlot} placeholder={m.placeholder} fallback={<BikeArt {...m.art} />} />
             </div>
             <div className="model-row-body">
               <div className="model-row-head">

@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
+import BikeArt from '../components/BikeArt';
 import ImageSlot from '../components/ImageSlot';
 import { MODELS } from '../data/models';
 import { WHY_US, SERVICES_OFFERED } from '../data/site';
+
+const HERO_ART = MODELS[0].detail.variants.find((v) => v.slot === 'variant-pulsarns200').art;
 
 export default function Home() {
   return (
@@ -35,7 +38,11 @@ export default function Home() {
             </div>
           </div>
           <div className="hero-media grayscale">
-            <ImageSlot id="hero-bike" placeholder="Drop a showroom / hero bike photo" />
+            <ImageSlot
+              id="hero-bike"
+              placeholder="Drop a showroom / hero bike photo"
+              fallback={<BikeArt {...HERO_ART} label="Pulsar NS200" />}
+            />
           </div>
         </div>
       </section>
@@ -51,7 +58,7 @@ export default function Home() {
           {MODELS.map((m) => (
             <div className="model-card" key={m.slug}>
               <div className="model-card-media grayscale">
-                <ImageSlot id={m.cardSlot} placeholder={m.placeholder} />
+                <ImageSlot id={m.cardSlot} placeholder={m.placeholder} fallback={<BikeArt {...m.art} />} />
               </div>
               <Link to={m.route} className="model-card-body">
                 <div className="model-card-name">{m.name}</div>

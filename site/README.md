@@ -118,5 +118,10 @@ in `client/src/data/site.js` are the dealership's real ones.)
 - `client/src/styles/tokens.css` — the Modernist design tokens (colors,
   fonts) as CSS custom properties.
 - `client/src/styles/global.css` — every component class used by the pages.
+- `client/src/components/BikeArt.jsx` — inline-SVG illustrations of every
+  model line (sport, commuter, rugged commuter, cruiser, CNG, scooter). Each
+  model and variant in `models.js` has an `art` entry (paint colour,
+  disc/drum, alloy/spoke, LED, etc.) and the drawing shows in its image slot
+  until a real photo is uploaded. An uploaded photo always takes precedence.
 - `client/src/pages/ModelDetail.jsx` — one generic template drives all 6
   model detail pages via `models.js`, instead of 6 near-duplicate files.
