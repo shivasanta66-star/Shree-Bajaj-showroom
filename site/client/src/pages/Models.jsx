@@ -9,10 +9,10 @@ export default function Models() {
     <>
       <div className="page-hero">
         <div className="page-hero-inner">
-          <h1 className="page-title">Our Models</h1>
+          <h1 className="page-title">Models and prices</h1>
           <p className="page-sub">
-            Ex-showroom prices indicative — call{' '}
-            <a href={`tel:${SITE.phone}`}>{SITE.phoneFormatted}</a> for on-road quotes.
+            Prices are approximate ex-showroom. For the on-road price, call{' '}
+            <a href={`tel:${SITE.phone}`}>{SITE.phoneFormatted}</a>.
           </p>
         </div>
       </div>
@@ -30,7 +30,7 @@ export default function Models() {
                   <div className="model-row-tag">{m.listTag}</div>
                 </div>
                 <div>
-                  <div className="model-row-price-label">Ex-showroom from</div>
+                  <div className="model-row-price-label">From</div>
                   <div className="model-row-price">{m.price}</div>
                 </div>
               </div>
@@ -44,9 +44,8 @@ export default function Models() {
                 ))}
               </div>
               <div className="model-row-actions">
-                <Link to="/booking" className="btn btn-primary btn-sm">Book Test Ride</Link>
-                <Link to="/booking" className="btn btn-outline btn-sm">Check EMI</Link>
-                <Link to={m.route} className="link-arrow">Full Details →</Link>
+                <Link to={m.route} className="btn btn-primary btn-sm">Details and variants</Link>
+                <Link to="/booking" className="btn btn-outline btn-sm">Book a test ride</Link>
               </div>
             </div>
           </div>

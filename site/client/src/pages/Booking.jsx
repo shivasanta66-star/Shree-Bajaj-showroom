@@ -36,9 +36,10 @@ export default function Booking() {
     <>
       <div className="page-hero">
         <div className="page-hero-inner">
-          <h1 className="page-title">Book a Test Ride</h1>
+          <h1 className="page-title">Book a test ride</h1>
           <p className="page-sub">
-            Fill the form and we'll call you back to confirm — or estimate your monthly EMI below.
+            Leave your name and number and we'll call you back. The EMI calculator is there if you
+            want a rough monthly figure first.
           </p>
         </div>
       </div>
@@ -102,14 +103,13 @@ function BookingForm() {
 
   return (
     <div className="panel">
-      <h2 className="panel-title">Test Ride / Booking Request</h2>
+      <h2 className="panel-title">Your details</h2>
       {submitted ? (
         <div className="success-box">
-          <div className="success-title">✓ Request received!</div>
+          <div className="success-title">Thanks, we've got it.</div>
           <div className="success-body">
-            Thank you, {submitted.name}. Our team will call you shortly on the number provided to
-            confirm your {submitted.model}{' '}
-            {submitted.purpose === 'Booking' ? 'booking' : 'test ride'}.
+            {submitted.name}, we'll call you on {submitted.phone} to fix up your{' '}
+            {submitted.model} {submitted.purpose === 'Booking' ? 'booking' : 'test ride'}.
           </div>
           <div className="success-actions">
             <a
@@ -120,13 +120,13 @@ function BookingForm() {
             >
               <WhatsAppIcon /> Message us on WhatsApp
             </a>
-            <button className="success-btn" onClick={resetForm}>Submit another request</button>
+            <button className="success-btn" onClick={resetForm}>Send another</button>
           </div>
         </div>
       ) : (
         <div className="form-fields">
           <div>
-            <label className="field-label">Full Name</label>
+            <label className="field-label">Name</label>
             <input
               className="field-input"
               value={name}
@@ -138,7 +138,7 @@ function BookingForm() {
             />
           </div>
           <div>
-            <label className="field-label">Mobile Number</label>
+            <label className="field-label">Mobile number</label>
             <input
               className="field-input"
               value={phone}
@@ -150,7 +150,7 @@ function BookingForm() {
             />
           </div>
           <div>
-            <label className="field-label">Request Type</label>
+            <label className="field-label">Test ride or booking?</label>
             <select
               className="field-input"
               value={purpose}
@@ -162,7 +162,7 @@ function BookingForm() {
             </select>
           </div>
           <div>
-            <label className="field-label">Interested Model</label>
+            <label className="field-label">Which bike?</label>
             <select className="field-input" value={model} onChange={(e) => setModel(e.target.value)}>
               {BOOKING_MODEL_OPTIONS.map((opt) => (
                 <option key={opt}>{opt}</option>
@@ -171,7 +171,7 @@ function BookingForm() {
           </div>
           {formError && <div className="form-error">{formError}</div>}
           <button className="form-submit" onClick={submit} disabled={sending}>
-            {sending ? 'Sending…' : 'Submit Request'}
+            {sending ? 'Sending…' : 'Send'}
           </button>
           <div className="form-or">or</div>
           <a
@@ -183,7 +183,7 @@ function BookingForm() {
             <WhatsAppIcon /> Send on WhatsApp
           </a>
           <div className="form-note">
-            This is a request only — we'll confirm by phone at {SITE.phoneFormatted}.
+            Nothing is booked until we call you back from {SITE.phoneFormatted}.
           </div>
         </div>
       )}
@@ -211,11 +211,11 @@ function EmiCalculator() {
 
   return (
     <div className="panel">
-      <h2 className="panel-title">EMI Calculator</h2>
+      <h2 className="panel-title">EMI calculator</h2>
       <div className="emi-fields">
         <div>
           <div className="emi-row-head">
-            <label>Vehicle Price (on-road)</label>
+            <label>On-road price</label>
             <span>{inr(price)}</span>
           </div>
           <input
@@ -229,7 +229,7 @@ function EmiCalculator() {
         </div>
         <div>
           <div className="emi-row-head">
-            <label>Down Payment</label>
+            <label>Down payment</label>
             <span>{inr(down)}</span>
           </div>
           <input
@@ -249,7 +249,7 @@ function EmiCalculator() {
         </div>
         <div className="emi-result">
           <div>
-            <div className="emi-result-label">Monthly EMI</div>
+            <div className="emi-result-label">Per month</div>
             <div className="emi-result-value">{inr(emi)}/mo</div>
           </div>
           <div className="emi-lines">
@@ -258,7 +258,8 @@ function EmiCalculator() {
           </div>
         </div>
         <div className="emi-note">
-          Estimate at {INTEREST_RATE}% p.a. reducing balance. Actual EMI depends on the financier's terms.
+          Rough figure at {INTEREST_RATE}% a year, reducing balance. The real EMI depends on the
+          finance company.
         </div>
       </div>
     </div>

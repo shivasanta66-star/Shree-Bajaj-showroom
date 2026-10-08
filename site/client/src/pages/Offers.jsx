@@ -6,10 +6,10 @@ export default function Offers() {
     <>
       <div className="page-hero">
         <div className="page-hero-inner">
-          <h1 className="page-title">Current Offers</h1>
+          <h1 className="page-title">Offers</h1>
           <p className="page-sub">
-            Offers valid this month at the Umerkote showroom. Terms apply — call{' '}
-            <a href={`tel:${SITE.phone}`}>{SITE.phoneFormatted}</a> to confirm.
+            Running this month at the Umerkote showroom. Terms apply, so call{' '}
+            <a href={`tel:${SITE.phone}`}>{SITE.phoneFormatted}</a> before you come in.
           </p>
         </div>
       </div>
@@ -28,14 +28,14 @@ export default function Offers() {
       </div>
 
       <div className="cta-wrap">
-        <div className="cta-banner">
+        <div className="cta-strip">
           <div>
-            <div className="cta-banner-title">Want the exact on-road price with offers applied?</div>
-            <div className="cta-banner-sub">Book a visit or call us — we'll work out your best deal on the spot.</div>
+            <div className="cta-strip-title">What will it cost you on the road?</div>
+            <div className="cta-strip-sub">Tell us the bike and we'll work out the price with the offers taken off.</div>
           </div>
           <div className="cta-actions">
-            <Link to="/booking" className="btn btn-on-dark btn-sm">Book Now</Link>
-            <a href={`tel:${SITE.phone}`} className="btn btn-outline-on-accent btn-sm">Call {SITE.phoneFormatted}</a>
+            <Link to="/booking" className="btn btn-primary btn-sm">Send a request</Link>
+            <a href={`tel:${SITE.phone}`} className="btn btn-outline btn-sm">Call {SITE.phoneFormatted}</a>
           </div>
         </div>
       </div>
