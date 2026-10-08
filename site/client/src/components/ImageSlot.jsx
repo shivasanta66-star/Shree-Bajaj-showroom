@@ -18,8 +18,9 @@ function PhotoIcon() {
 // prototype's <image-slot> web component. Same drop/click-to-browse UX;
 // images persist through the site/server upload API instead of a local
 // sidecar file, so they survive reload for every visitor, not just the
-// browser that dropped them.
-export default function ImageSlot({ id, placeholder = 'Drop an image', alt = '' }) {
+// browser that dropped them. `fallback` (e.g. a <BikeArt>) is shown instead
+// of the empty drop prompt until a photo is uploaded.
+export default function ImageSlot({ id, placeholder = 'Drop an image', alt = '', fallback = null }) {
   const { images, upload, remove } = useImageSlots();
   const url = images[id];
   const inputRef = useRef(null);
@@ -54,7 +55,7 @@ export default function ImageSlot({ id, placeholder = 'Drop an image', alt = '' 
 
   return (
     <div
-      className={`image-slot${dragOver ? ' is-over' : ''}`}
+      className={`image-slot${dragOver ? ' is-over' : ''}${!url && fallback ? ' has-fallback' : ''}`}
       onDragOver={(e) => {
         e.preventDefault();
         setDragOver(true);
@@ -76,6 +77,11 @@ export default function ImageSlot({ id, placeholder = 'Drop an image', alt = '' 
     >
       {url ? (
         <img src={url} alt={alt} />
+      ) : fallback ? (
+        <>
+          {fallback}
+          <div className="image-slot-hint">Click or drop to add a photo</div>
+        </>
       ) : (
         <div className="image-slot-empty">
           <PhotoIcon />

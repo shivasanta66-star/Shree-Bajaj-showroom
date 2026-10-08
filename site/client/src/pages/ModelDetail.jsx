@@ -1,4 +1,5 @@
 import { Link, Navigate, useParams } from 'react-router-dom';
+import BikeArt from '../components/BikeArt';
 import ImageSlot from '../components/ImageSlot';
 import { SITE } from '../data/site';
 import { getModelBySlug } from '../data/models';
@@ -24,7 +25,7 @@ export default function ModelDetail() {
             </div>
           </div>
           <div className="detail-media grayscale">
-            <ImageSlot id={d.heroSlot} placeholder={d.heroPlaceholder} />
+            <ImageSlot id={d.heroSlot} placeholder={d.heroPlaceholder} fallback={<BikeArt {...model.art} />} />
           </div>
         </div>
       </div>
@@ -51,7 +52,7 @@ export default function ModelDetail() {
             {d.variants.map((v) => (
               <div className="variant-card" key={v.name}>
                 <div className="variant-media grayscale">
-                  <ImageSlot id={v.slot} placeholder={v.placeholder} />
+                  <ImageSlot id={v.slot} placeholder={v.placeholder} fallback={<BikeArt {...v.art} label={v.name} />} />
                 </div>
                 <div className="variant-body">
                   <div className="variant-name">{v.name}</div>
